@@ -2,8 +2,9 @@
 Intializes classes, satisfying configuration and supplied parameters.
 """
 import inspect
-from typing import Callable, Dict, List
+from typing import Callable, Dict, List, Self
 
+from bom_pipeline.config import Config
 from bom_pipeline.decorators import STAGE_MAP
 from bom_pipeline.stage import Stage
 
@@ -13,8 +14,12 @@ class Initializer:
     Intializes classes, satisfying configuration and supplied parameters.
     """
 
-    def __init__(self):
-        pass
+    instance: Self = None
+
+    def __init__(self, config: Config):
+        self._config = config
+
+        Initializer.instance = self
 
     def __call__(
         self,
@@ -25,7 +30,7 @@ class Initializer:
     ):
         if hasattr(function, "config"):
             for key in function.config.keys():
-                parameters_dict[key] = get_config_part(function.config[key])
+                parameters_dict[key] = self._config.get_part(function.config[key])
 
         signature = inspect.signature(function.__init__)
 

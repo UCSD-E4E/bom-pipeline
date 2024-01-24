@@ -17,13 +17,9 @@ class Parallel(ParentStage):
     """
 
     def __init__(
-        self,
-        name: str,
-        runtime_config: Dict[str, any],
-        initializer: Initializer,
-        *stage_types: List[Callable]
+        self, name: str, runtime_config: Dict[str, any], *stage_types: List[Callable]
     ):
-        ParentStage.__init__(self, name, runtime_config, initializer, *stage_types)
+        ParentStage.__init__(self, name, runtime_config, *stage_types)
 
     def execute(self) -> StageResult:
         """

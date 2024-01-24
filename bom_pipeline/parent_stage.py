@@ -18,11 +18,7 @@ class ParentStage(Stage):
     static_stages = []
 
     def __init__(
-        self,
-        name: str,
-        runtime_config: Dict[str, any],
-        initializer: Initializer,
-        *stage_types: List[Callable]
+        self, name: str, runtime_config: Dict[str, any], *stage_types: List[Callable]
     ):
         Stage.__init__(self)
 
@@ -61,7 +57,7 @@ class ParentStage(Stage):
 
                     parameters_dict[parameter] = runtime_config
 
-            stage: Stage = initializer(
+            stage: Stage = Initializer.instance(
                 stage_type,
                 parameters_dict,
                 runtime_config,
