@@ -111,8 +111,8 @@ class Pipeline(ABC):
         if iterations:
             Pipeline.iterations = iterations
 
-        keep_awake = (
-            platform.system() != "Linux" or os.environ["XDG_SESSION_TYPE"] != "tty"
+        keep_awake = platform.system() != "Linux" or (
+            "XDG_SESSION_TYPE" in os.environ and os.environ["XDG_SESSION_TYPE"] != "tty"
         )
         if keep_awake:
             set_keepawake()
