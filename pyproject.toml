@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-wakepy = "^0.7.2"
+wakepy = {git = "https://github.com/ccrutchf/wakepy", rev = "dev"}
 
 [tool.poetry.dev-dependencies]
 black = "^23.12.0"

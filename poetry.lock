@@ -134,22 +134,27 @@ test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=7.4)", "pytest-co
 
 [[package]]
 name = "wakepy"
-version = "0.7.2"
-description = "Simple wakelock / keep-awake / stay-awake"
+version = "0.8.0.dev0"
+description = "wakelock / keep-awake / stay-awake"
 optional = false
 python-versions = ">=3.7"
-files = [
-    {file = "wakepy-0.7.2-py3-none-any.whl", hash = "sha256:7fb11ca7ffcc9312abf3ada086455a442c91b90b798fb888bc78b91cc311c0fc"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 jeepney = {version = ">=0.7.1", markers = "sys_platform == \"linux\""}
 
 [package.extras]
-dev = ["IPython", "black (==23.3.0)", "isort (==5.12.0)", "mypy (==1.3.0)", "pytest", "ruff (==0.0.270)", "sphinx-autobuild", "tox (==4.6.0)"]
+dev = ["IPython", "black (==23.3.0)", "isort (==5.12.0)", "jeepney (>=0.7.1)", "mypy (==1.3.0)", "pytest", "pytest-cov", "ruff (==0.0.270)", "sphinx-autobuild", "time-machine", "tox (==4.6.0)"]
 doc = ["furo", "myst-parser (>=1.0.0,<1.1.0)", "sphinx (>=5.0,<6.0)", "sphinx-copybutton (>=0.5.2,<0.6.0)", "sphinx_design (>=0.4.1,<0.5.0)"]
+
+[package.source]
+type = "git"
+url = "https://github.com/ccrutchf/wakepy"
+reference = "dev"
+resolved_reference = "15e6f004ec388026a284797635aa0a3c2bc9980d"
 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "1516108395b15e9fd59d326392f5ba5700f7a1fdc82c7d6d94cad79a50f9e242"
+content-hash = "037c711ed9006b0283d20a242d22d4ce040d9f06a518ed5f65bfb0fe32cf16a6"
