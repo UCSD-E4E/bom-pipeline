@@ -170,7 +170,8 @@ class Pipeline(ABC):
         """
 
         if (
-            "progress" not in self._runtime_config
+            not self._progress
+            or "progress" not in self._runtime_config
             or not self._runtime_config["progress"]
         ):
             return
